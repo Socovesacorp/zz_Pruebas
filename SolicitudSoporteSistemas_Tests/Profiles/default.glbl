@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>default</name>
+   <tag></tag>
+   <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description>correo tecnico asignado perteneciente a la BD</description>
+      <initValue>'eherreral@socovesa.cl'</initValue>
+      <name>CorreoAsignado</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>false</initValue>
+      <name>ErrorCorreoExterno</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

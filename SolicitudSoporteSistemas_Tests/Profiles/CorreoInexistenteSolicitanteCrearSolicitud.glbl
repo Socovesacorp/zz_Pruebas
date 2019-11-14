@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>CorreoInexistenteSolicitanteCrearSolicitud</name>
+   <tag></tag>
+   <defaultProfile>false</defaultProfile>
+   <GlobalVariableEntity>
+      <description>correo técnico asignado, no perteneciente a la BD</description>
+      <initValue>'juanito@socovesa.cl'</initValue>
+      <name>CorreoAsignado</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>true</initValue>
+      <name>ErrorCorreoExterno</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

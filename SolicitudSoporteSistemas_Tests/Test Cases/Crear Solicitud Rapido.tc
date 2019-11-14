@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Prueba en que se ingresa un correo que no pertenece a un usuario del sistema y se espera que arroje el mensaje de error que lo indique</description>
+   <name>Crear Solicitud Rapido</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>f19945c4-ccee-48a5-a814-c573925a6b9e</testCaseGuid>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>871588a3-2633-4811-bd71-59aca15b50b0</id>
+      <masked>false</masked>
+      <name>ErrorUsrAsignado</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>05465f9c-c5fa-4b30-b4a8-8ebfb5dc095f</id>
+      <masked>false</masked>
+      <name>CampoCreador</name>
+   </variable>
+</TestCaseEntity>

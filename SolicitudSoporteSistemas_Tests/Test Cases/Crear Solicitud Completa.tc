@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Prueba en que se ingresa un correo que no pertenece a un usuario del sistema y se espera que arroje el mensaje de error que lo indique</description>
+   <name>Crear Solicitud Completa</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>a8646681-bae2-482d-8246-d86acbe7c3d9</testCaseGuid>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>0dd2d3a3-6a73-4760-9a60-a42eb72f9766</id>
+      <masked>false</masked>
+      <name>ErrorUsrAsignado</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>c54a56d7-4503-4537-88c9-22f9e745eb83</id>
+      <masked>false</masked>
+      <name>CampoCreador</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>506416a6-a5de-428e-bb6f-fef99c802bc9</id>
+      <masked>false</masked>
+      <name>TextoFinal</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>67a7256c-9a9a-441d-b0d6-ca052683a761</id>
+      <masked>false</masked>
+      <name>Ahora</name>
+   </variable>
+</TestCaseEntity>
