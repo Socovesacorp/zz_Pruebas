@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>/html[@class=&quot;perfect-scrollbar-on nav-open&quot;]/body[1]/div[@class=&quot;wrapper&quot;]/div[@class=&quot;sidebar&quot;]/div[@class=&quot;sidebar-wrapper ps ps--theme_default&quot;]/ul[@class=&quot;nav nav-mobile-menu&quot;]/li[2]/a[1]/p[@class=&quot;hidden-lg hidden-md&quot;]</value>
+         <value>/html/body/div/div[2]/nav/div/div[2]/ul/li[1]/a</value>
       </entry>
       <entry>
          <key>XPATH</key>
@@ -42,7 +42,7 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html/body/div/div[2]/nav/div/div[2]/ul/li[2]/a</value>
+      <value>/html/body/div/div[2]/nav/div/div[2]/ul/li[1]/a</value>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
