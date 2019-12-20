@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Prueba consistente en insertar una nueva categoría, luego modificarla y eliminarla, se realizan comparaciones contra la Base de Datos para asegurar que los datos se actualicen correctamente</description>
+   <name>Mantenedor Categoria</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>92385781-0af6-470f-a2b9-6f73497f9601</testCaseGuid>
+</TestCaseEntity>

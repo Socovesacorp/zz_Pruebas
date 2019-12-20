@@ -14,4 +14,14 @@
       <initValue>false</initValue>
       <name>ErrorCorreoExterno</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>0</initValue>
+      <name>idCategoria</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>nombreCategoria</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
