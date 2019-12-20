@@ -1,5 +1,18 @@
-import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import internal.GlobalVariable as GlobalVariable
 
 Ahora = new Date()
@@ -14,7 +27,7 @@ WebUI.openBrowser('')
 
 WebUI.maximizeWindow()
 
-WebUI.navigateToUrl('http://crmiis:8085/')
+WebUI.navigateToUrl('http://crmiis:8085/SS/MisSSSPendientes?idred=eherreral')
 
 WebUI.waitForPageLoad(10)
 
@@ -67,25 +80,31 @@ if (textoTabla.contains('Solicitud Agregada Correctamente')) {
     TextoFinal = (TextoFinal + '\nEl mensaje de Categoría Solicitud Agregada Correctamente se muestra de acuerdo a lo esperado')
 } else {
     TextoFinal = (TextoFinal + '\nNo se despliega el mensaje esperado de que la categoría fue agregada correctamente')
-
     throw StepErrorException('Error: Revisar por qué no se despliega el mensaje esperado')
-    
     Ahora = new Date()
-
     TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
-
     println(TextoFinal)
-
     WebUI.closeBrowser()
 }
 
 TextoFinal = (TextoFinal + '\nLuego de la inserción, corroboramos que la Categoría se haya guardado correctamente en la BD')
 
 CustomKeywords.'mantenedorCategoria.corroborarInsersion.connectDB'('SQL2008JT', 'SoporteICSA_qa', '1433', 'tickets', 'Socovesa.2011')
+GlobalVariable.query = "select CategoriaSolicitudId from CategoriaSolicitud where Descr = 'categoria prueba katalon'";
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetID'()
 
-CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetCategoriaID'()
+if(Integer.valueOf(GlobalVariable.id) > 0){
+	TextoFinal = ((TextoFinal + '\nEl ID de la categoría es el: ') + GlobalVariable.id.toString())
+}else{
+	throw StepErrorException('Error: La categoría no se insertó en la BD')
+	Ahora = new Date()
+	TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+	println(TextoFinal)
+	WebUI.closeBrowser()
+}
 
-TextoFinal = (TextoFinal + '\nEl ID de la categoría es el: ' + GlobalVariable.idCategoria)
+
+
 
 TextoFinal = (TextoFinal + '\nModificamos el nombre de la categoría por "modificacion categoria katalon"')
 
@@ -116,13 +135,19 @@ if (textoTabla.contains('Solicitud Actualizada Correctamente')) {
     WebUI.closeBrowser()
 }
 
-TextoFinal = (((TextoFinal + '\nLuego de guardar, corroboramos que la categoría de ID: ') + GlobalVariables.idCategoria) + 
-' tenga el nombre actualizado en la BD')
+TextoFinal = (((TextoFinal + '\nLuego de guardar, corroboramos que la categoría de ID: ') + GlobalVariable.id) + ' tenga el nombre actualizado en la BD')
 
-CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetNombreCategoria'()
+GlobalVariable.query = "select Descr from CategoriaSolicitud where CategoriaSolicitudId = "+GlobalVariable.id;
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetNombre'()
 
-if (GlobalVariable.nombreCategoria.equals('modificacion categoria katalon')) {
+if (GlobalVariable.nombreResultado.equals('modificacion categoria katalon')) {
     TextoFinal = (TextoFinal + '\nEl nombre de la categoría en la BD coincide con el nombre que modificamos: "modificacion categoria katalon"')
+}else{
+	throw StepErrorException('Error: No se encuentran coincidencias con el nombre modificado de la categoría')
+	Ahora = new Date()
+	TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+	println(TextoFinal)
+	WebUI.closeBrowser()
 }
 
 TextoFinal = (TextoFinal + '\nEliminamos la categoría creada')
@@ -169,9 +194,30 @@ if (textoTabla.contains('Mostrando 0 a 0 de 0 registros')) {
     WebUI.closeBrowser()
 }
 
+TextoFinal = (TextoFinal + '\nRevisamos en la BD para corroborar que la categoría haya sido eliminada')
+GlobalVariable.query = "select Descr from CategoriaSolicitud where CategoriaSolicitudId = "+GlobalVariable.id;
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetNombre'()
+
+if (GlobalVariable.nombreResultado.equals('')) {
+	TextoFinal = (TextoFinal + '\nLa categoría fue eliminada con éxito')
+}else{
+	
+	throw StepErrorException('Error: La categoría no fue eliminada')
+	
+	Ahora = new Date()
+
+	TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+
+	println(TextoFinal)
+
+	WebUI.closeBrowser()
+}
+
+
 Ahora = new Date()
 
 TextoFinal = (((TextoFinal + '\nTérmino: ') + Ahora) + '\n')
 
 println(TextoFinal)
 
+WebUI.closeBrowser()

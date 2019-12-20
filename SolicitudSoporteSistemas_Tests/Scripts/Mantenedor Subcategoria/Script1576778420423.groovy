@@ -100,6 +100,24 @@ if (textoTabla.contains('Solicitud Agregada Correctamente')) {
     WebUI.closeBrowser()
 }
 
+TextoFinal = (TextoFinal + '\nLuego de la inserción, corroboramos que la SubCategoría se haya guardado correctamente en la BD')
+
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.connectDB'('SQL2008JT', 'SoporteICSA_qa', '1433', 'tickets', 'Socovesa.2011')
+GlobalVariable.query = "select SubCategoriaId from SubCategoria where Descr = 'subcategoria prueba katalon'";
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetID'()
+
+if( Integer.valueOf(GlobalVariable.id) > 0){
+	TextoFinal = ((TextoFinal + '\nEl ID de la subcategoría es el: ') + GlobalVariable.id.toString())
+}else{
+	throw StepErrorException('Error: La subcategoría no se insertó en la BD')
+	Ahora = new Date()
+	TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+	println(TextoFinal)
+	WebUI.closeBrowser()
+}
+
+
+
 TextoFinal = (TextoFinal + '\nModificamos el nombre de la subcategoría por "modificacion subcategoria katalon"')
 
 WebUI.click(findTestObject('Object Repository/Page_CrearEditarSubCategoria - Mesa de Servicios/input_Subcategora_subCategoriaDescr'))
@@ -135,6 +153,22 @@ if (textoTabla.contains('Solicitud Actualizada Correctamente')) {
 
     WebUI.closeBrowser()
 }
+
+TextoFinal = (((TextoFinal + '\nLuego de guardar, corroboramos que la subcategoría de ID: ') + GlobalVariable.id) + ' tenga el nombre actualizado en la BD')
+
+GlobalVariable.query = "select Descr from SubCategoria where SubCategoriaId = "+GlobalVariable.id;
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetNombre'()
+
+if (GlobalVariable.nombreResultado.equals('modificacion subcategoria katalon')) {
+	TextoFinal = (TextoFinal + '\nEl nombre de la subcategoría en la BD coincide con el nombre que modificamos: "modificacion subcategoria katalon"')
+}else{
+	throw StepErrorException('Error: No se encuentran coincidencias con el nombre modificado de la subcategoría')
+	Ahora = new Date()
+	TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+	println(TextoFinal)
+	WebUI.closeBrowser()
+}
+
 
 TextoFinal = (TextoFinal + '\nEliminamos la subcategoría creada')
 
@@ -184,9 +218,29 @@ if (WebUI.verifyTextPresent('No se encontraron registros', true)) {
     WebUI.closeBrowser()
 }
 
+TextoFinal = (TextoFinal + '\nRevisamos en la BD para corroborar que la subcategoría haya sido eliminada')
+GlobalVariable.query = "select Descr from SubCategoria where SubCategoriaId = "+GlobalVariable.id;
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetNombre'()
+
+if (GlobalVariable.nombreResultado.equals('')) {
+	TextoFinal = (TextoFinal + '\nLa subcategoría fue eliminada con éxito')
+}else{
+	
+	throw StepErrorException('Error: La subcategoría no fue eliminada')
+	
+	Ahora = new Date()
+
+	TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+
+	println(TextoFinal)
+
+	WebUI.closeBrowser()
+}
+
 Ahora = new Date()
 
 TextoFinal = (((TextoFinal + '\nTérmino: ') + Ahora) + '\n')
 
 println(TextoFinal)
 
+WebUI.closeBrowser()

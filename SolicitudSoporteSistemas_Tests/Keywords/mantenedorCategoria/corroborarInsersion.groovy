@@ -41,8 +41,8 @@ public class corroborarInsersion {
 	 */
 	@Keyword
 
-	def GetCategoriaID() {
-		String queryString = "select CategoriaSolicitudId from CategoriaSolicitud where Descr = 'categoria prueba katalon'";
+	def GetID() {
+		String queryString = GlobalVariable.query;
 		Statement stm = connection.createStatement()
 
 		ResultSet rs = stm.executeQuery(queryString)
@@ -60,7 +60,7 @@ public class corroborarInsersion {
 			}
 
 		}
-		GlobalVariable.idCategoria = columnValue ;
+		GlobalVariable.id = columnValue ;
 	}
 
 
@@ -70,9 +70,9 @@ public class corroborarInsersion {
 	 */
 	@Keyword
 
-	def GetNombreCategoria() {
-		int idCategoria = GlobalVariable.idCategoria;
-		String queryString = "select Descr from CategoriaSolicitud where CategoriaSolicitudId = "+idCategoria;
+	def GetNombre() {
+		int idCategoria = Integer.valueOf(GlobalVariable.id) ;
+		String queryString = GlobalVariable.query;
 		Statement stm = connection.createStatement()
 
 		ResultSet rs = stm.executeQuery(queryString)
@@ -90,6 +90,10 @@ public class corroborarInsersion {
 			}
 
 		}
-		GlobalVariable.nombreCategoria = columnValue.toString() ;
+		GlobalVariable.nombreResultado = columnValue.toString() ;
 	}
+
+
+
+
 }

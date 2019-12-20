@@ -17,11 +17,16 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>0</initValue>
-      <name>idCategoria</name>
+      <name>id</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
       <initValue>''</initValue>
-      <name>nombreCategoria</name>
+      <name>nombreResultado</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>query</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
