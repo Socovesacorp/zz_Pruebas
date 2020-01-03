@@ -14,4 +14,9 @@
       <initValue>true</initValue>
       <name>ErrorCorreoExterno</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>http://svsticket:8185/</description>
+      <initValue>'http://svsticket:8185/'</initValue>
+      <name>URL</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

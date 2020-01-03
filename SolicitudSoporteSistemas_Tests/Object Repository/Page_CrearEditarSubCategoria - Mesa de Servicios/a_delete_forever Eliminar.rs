@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>BASIC</key>
-         <value>/html[@class=&quot;perfect-scrollbar-on&quot;]/body[1]/div[@class=&quot;wrapper&quot;]/div[@class=&quot;main-panel ps-container ps-theme-default&quot;]/div[@class=&quot;content&quot;]/div[@class=&quot;container-fluid&quot;]/div[@class=&quot;col-md-7&quot;]/div[@class=&quot;card&quot;]/div[@class=&quot;card-body&quot;]/form[1]/a[@class=&quot;btn btn-danger pull-right&quot;]</value>
+         <value>/html/body/div/div[2]/div[1]/div[2]/div[2]/form/a</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -51,7 +51,7 @@
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html/body/div/div[2]/div[1]/div[2]/div/div/div[2]/form/a</value>
+      <value>/html/body/div/div[2]/div[1]/div[2]/div[2]/form/a</value>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>

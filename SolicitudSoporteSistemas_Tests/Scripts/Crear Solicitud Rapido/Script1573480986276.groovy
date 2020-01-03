@@ -25,7 +25,7 @@ TextoFinal = '\nEjecución Creación Solicitud Rápida\n'
 TextoFinal = TextoFinal + '************************************\n'
 TextoFinal = TextoFinal + 'Inicio: ' + Ahora
 
-WebUI.navigateToUrl('http://crmiis:8085')
+WebUI.navigateToUrl(GlobalVariable.URL)
 
 //WebUI.click(findTestObject('Page_MisSSSPendientes - Mesa de Servicios/button_Toggle navigation'))
 WebUI.waitForPageLoad(11)

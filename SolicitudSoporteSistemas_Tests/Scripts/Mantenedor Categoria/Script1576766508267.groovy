@@ -27,7 +27,7 @@ WebUI.openBrowser('')
 
 WebUI.maximizeWindow()
 
-WebUI.navigateToUrl('http://crmiis:8085/SS/MisSSSPendientes?idred=eherreral')
+WebUI.navigateToUrl(GlobalVariable.URL)
 
 WebUI.waitForPageLoad(10)
 
@@ -80,31 +80,39 @@ if (textoTabla.contains('Solicitud Agregada Correctamente')) {
     TextoFinal = (TextoFinal + '\nEl mensaje de Categoría Solicitud Agregada Correctamente se muestra de acuerdo a lo esperado')
 } else {
     TextoFinal = (TextoFinal + '\nNo se despliega el mensaje esperado de que la categoría fue agregada correctamente')
+
     throw StepErrorException('Error: Revisar por qué no se despliega el mensaje esperado')
+    
     Ahora = new Date()
+
     TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+
     println(TextoFinal)
+
     WebUI.closeBrowser()
 }
 
 TextoFinal = (TextoFinal + '\nLuego de la inserción, corroboramos que la Categoría se haya guardado correctamente en la BD')
 
-CustomKeywords.'mantenedorCategoria.corroborarInsersion.connectDB'('SQL2008JT', 'SoporteICSA_qa', '1433', 'tickets', 'Socovesa.2011')
-GlobalVariable.query = "select CategoriaSolicitudId from CategoriaSolicitud where Descr = 'categoria prueba katalon'";
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.connectDB'('svsticket', 'SoporteICSA_prd', '1433', 'consulta', 'Socovesa.2011')
+
+GlobalVariable.query = 'select CategoriaSolicitudId from CategoriaSolicitud where Descr = \'categoria prueba katalon\''
+
 CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetID'()
 
-if(Integer.valueOf(GlobalVariable.id) > 0){
-	TextoFinal = ((TextoFinal + '\nEl ID de la categoría es el: ') + GlobalVariable.id.toString())
-}else{
-	throw StepErrorException('Error: La categoría no se insertó en la BD')
-	Ahora = new Date()
-	TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
-	println(TextoFinal)
-	WebUI.closeBrowser()
+if (Integer.valueOf(GlobalVariable.id) > 0) {
+    TextoFinal = ((TextoFinal + '\nEl ID de la categoría es el: ') + GlobalVariable.id.toString())
+} else {
+    throw StepErrorException('Error: La categoría no se insertó en la BD')
+    
+    Ahora = new Date()
+
+    TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+
+    println(TextoFinal)
+
+    WebUI.closeBrowser()
 }
-
-
-
 
 TextoFinal = (TextoFinal + '\nModificamos el nombre de la categoría por "modificacion categoria katalon"')
 
@@ -137,17 +145,22 @@ if (textoTabla.contains('Solicitud Actualizada Correctamente')) {
 
 TextoFinal = (((TextoFinal + '\nLuego de guardar, corroboramos que la categoría de ID: ') + GlobalVariable.id) + ' tenga el nombre actualizado en la BD')
 
-GlobalVariable.query = "select Descr from CategoriaSolicitud where CategoriaSolicitudId = "+GlobalVariable.id;
+GlobalVariable.query = ('select Descr from CategoriaSolicitud where CategoriaSolicitudId = ' + GlobalVariable.id)
+
 CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetNombre'()
 
 if (GlobalVariable.nombreResultado.equals('modificacion categoria katalon')) {
     TextoFinal = (TextoFinal + '\nEl nombre de la categoría en la BD coincide con el nombre que modificamos: "modificacion categoria katalon"')
-}else{
-	throw StepErrorException('Error: No se encuentran coincidencias con el nombre modificado de la categoría')
-	Ahora = new Date()
-	TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
-	println(TextoFinal)
-	WebUI.closeBrowser()
+} else {
+    throw StepErrorException('Error: No se encuentran coincidencias con el nombre modificado de la categoría')
+    
+    Ahora = new Date()
+
+    TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+
+    println(TextoFinal)
+
+    WebUI.closeBrowser()
 }
 
 TextoFinal = (TextoFinal + '\nEliminamos la categoría creada')
@@ -195,24 +208,24 @@ if (textoTabla.contains('Mostrando 0 a 0 de 0 registros')) {
 }
 
 TextoFinal = (TextoFinal + '\nRevisamos en la BD para corroborar que la categoría haya sido eliminada')
-GlobalVariable.query = "select Descr from CategoriaSolicitud where CategoriaSolicitudId = "+GlobalVariable.id;
+
+GlobalVariable.query = ('select Descr from CategoriaSolicitud where CategoriaSolicitudId = ' + GlobalVariable.id)
+
 CustomKeywords.'mantenedorCategoria.corroborarInsersion.GetNombre'()
 
 if (GlobalVariable.nombreResultado.equals('')) {
-	TextoFinal = (TextoFinal + '\nLa categoría fue eliminada con éxito')
-}else{
-	
-	throw StepErrorException('Error: La categoría no fue eliminada')
-	
-	Ahora = new Date()
+    TextoFinal = (TextoFinal + '\nLa categoría fue eliminada con éxito')
+} else {
+    throw StepErrorException('Error: La categoría no fue eliminada')
+    
+    Ahora = new Date()
 
-	TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
+    TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
 
-	println(TextoFinal)
+    println(TextoFinal)
 
-	WebUI.closeBrowser()
+    WebUI.closeBrowser()
 }
-
 
 Ahora = new Date()
 
@@ -221,3 +234,4 @@ TextoFinal = (((TextoFinal + '\nTérmino: ') + Ahora) + '\n')
 println(TextoFinal)
 
 WebUI.closeBrowser()
+
