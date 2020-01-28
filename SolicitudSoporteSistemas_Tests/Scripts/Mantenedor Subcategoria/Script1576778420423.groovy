@@ -62,47 +62,26 @@ if (WebUI.verifyTextPresent('No se encontraron registros', true)) {
 
 TextoFinal = (TextoFinal + '\nIngresamos una nueva Subcategoría')
 
-WebUI.click(findTestObject('Object Repository/Page_GestionarSubCategorias - Mesa de Servicios/a_playlist_add Nueva SubCategora'))
+WebUI.click(findTestObject('Object Repository/Page_Listado de Sub Categoras en cualquier _49f534/input_Nombre SubCategora_nombreSubCategoria'))
 
 TextoFinal = (TextoFinal + '\nIngresamos el nombre de la Subcategoría: "subcategoria prueba katalon"')
 
-WebUI.click(findTestObject('Object Repository/Page_CrearEditarSubCategoria - Mesa de Servicios/input_Subcategora_subCategoriaDescr'))
-
-WebUI.setText(findTestObject('Object Repository/Page_CrearEditarSubCategoria - Mesa de Servicios/input_Subcategora_subCategoriaDescr'), 
+WebUI.setText(findTestObject('Object Repository/Page_Listado de Sub Categoras en cualquier _49f534/input_Nombre SubCategora_nombreSubCategoria'), 
     'subcategoria prueba katalon')
 
 TextoFinal = (TextoFinal + '\nSeleccionamos una categoría asociada"')
 
-WebUI.click(findTestObject('Object Repository/Page_CrearEditarSubCategoria - Mesa de Servicios/select_Seleccione CategoraRedTerminal Serve_4e78b2'))
-
-WebUI.selectOptionByValue(findTestObject('Object Repository/Page_CrearEditarSubCategoria - Mesa de Servicios/select_Seleccione CategoraRedTerminal Serve_4e78b2'), 
+WebUI.selectOptionByValue(findTestObject('Object Repository/Page_Listado de Sub Categoras en cualquier _49f534/select_Seleccione CategoraRedTerminal Serve_4e78b2'), 
     '1', true)
 
 TextoFinal = (TextoFinal + '\nGuardamos')
 
-WebUI.click(findTestObject('Object Repository/Page_CrearEditarSubCategoria - Mesa de Servicios/button_save Guardar'))
-
-textoTabla = WebUI.getText(findTestObject('Object Repository/Page_CrearEditarSubCategoria - Mesa de Servicios/div_Subcategora Solicitud Agregada Correctamente'))
-
-if (textoTabla.contains('Solicitud Agregada Correctamente')) {
-    TextoFinal = (TextoFinal + '\nEl mensaje de Subcategoría Solicitud Agregada Correctamente se muestra de acuerdo a lo esperado')
-} else {
-    TextoFinal = (TextoFinal + '\nNo se despliega el mensaje esperado de que la subcategoría fue agregada correctamente')
-
-    throw StepErrorException('Error: Revisar por qué no se despliega el mensaje esperado')
-    
-    Ahora = new Date()
-
-    TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
-
-    println(TextoFinal)
-
-    WebUI.closeBrowser()
-}
+WebUI.click(findTestObject('Object Repository/Page_Listado de Sub Categoras en cualquier _49f534/button_playlist_add Nueva SubCategora'))
 
 TextoFinal = (TextoFinal + '\nLuego de la inserción, corroboramos que la SubCategoría se haya guardado correctamente en la BD')
 
-CustomKeywords.'mantenedorCategoria.corroborarInsersion.connectDB'('svsticket', 'SoporteICSA_prd', '1433', 'consulta', 'Socovesa.2011')
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.connectDB'('BdsGen2017Qa', 'Soporte_Ticket_SSS', '1433', 'UI_TICKET_SSS', 
+    'Ticket.2019')
 
 GlobalVariable.query = 'select SubCategoriaId from SubCategoria where Descr = \'subcategoria prueba katalon\''
 
@@ -123,6 +102,8 @@ if (Integer.valueOf(GlobalVariable.id) > 0) {
 }
 
 TextoFinal = (TextoFinal + '\nModificamos el nombre de la subcategoría por "modificacion subcategoria katalon"')
+
+WebUI.click(findTestObject('Object Repository/Page_Listado de Sub Categoras en cualquier _49f534/a_subcategoria prueba katalon'))
 
 WebUI.click(findTestObject('Object Repository/Page_CrearEditarSubCategoria - Mesa de Servicios/input_Subcategora_subCategoriaDescr'))
 

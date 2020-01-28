@@ -1,96 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input</name>
+   <name>button_playlist_add Nueva Categora</name>
    <tag></tag>
-   <elementGuidId>69c99b94-ebf9-4615-89c6-4ec8616438a8</elementGuidId>
+   <elementGuidId>7fb813f5-5e5b-4dfd-a93b-f1ef0d1ae761</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
-         <value>//*[@type = 'search' and @aria-controls = 'myTableCatSol']</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
-         <value>//input[@type='search']</value>
+         <value>//button[@onclick='ValidateNuevaCategoria()']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>BASIC</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>input</value>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>btn btn-primary pull-right</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>ValidateNuevaCategoria()</value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>type</name>
+      <name>text</name>
       <type>Main</type>
-      <value>search</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>aria-controls</name>
-      <type>Main</type>
-      <value>myTableCatSol</value>
+      <value>
+                                                playlist_add Nueva Categoría
+                                            </value>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>//*[@id=&quot;myTableUsers_filter&quot;]/label/input</value>
+      <value>/html[@class=&quot;perfect-scrollbar-on&quot;]/body[1]/div[@class=&quot;wrapper&quot;]/div[@class=&quot;main-panel ps-container ps-theme-default&quot;]/div[@class=&quot;content&quot;]/div[@class=&quot;card&quot;]/div[@class=&quot;card-body&quot;]/div[@class=&quot;table-responsive&quot;]/div[@class=&quot;card col-md-6&quot;]/div[@class=&quot;card-body&quot;]/form[1]/div[@class=&quot;form-row&quot;]/div[@class=&quot;col-md-2&quot;]/button[@class=&quot;btn btn-primary pull-right&quot;]</value>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@type='search']</value>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
-      <type>Main</type>
-      <value>//div[@id='myTableUsers_filter']/label/input</value>
+      <value>//button[@onclick='ValidateNuevaCategoria()']</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Buscar:'])[1]/input[1]</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Vigente'])[1]/following::button[1]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Mostrando 1 a 45 de 45 registros'])[1]/following::input[1]</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='El Campo Categoría es Obligatorio'])[1]/following::button[1]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Id'])[1]/preceding::input[1]</value>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Mostrando 1 a 47 de 47 registros'])[1]/preceding::button[1]</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Categoría'])[1]/preceding::input[1]</value>
+      <value>//*/text()[normalize-space(.)='Nueva Categoría']/parent::*</value>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//label/input</value>
+      <value>//div[3]/button</value>
    </webElementXpaths>
 </WebElementEntity>

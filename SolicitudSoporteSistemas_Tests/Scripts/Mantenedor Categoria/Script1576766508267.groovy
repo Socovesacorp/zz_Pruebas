@@ -61,7 +61,13 @@ if (WebUI.verifyTextPresent('No se encontraron registros', true)) {
 
 TextoFinal = (TextoFinal + '\nIngresamos una nueva categoría')
 
-WebUI.click(findTestObject('Object Repository/Page_GestionarCategorias - Mesa de Servicios/a_playlist_add Nueva Categora'))
+WebUI.click(findTestObject('Object Repository/Page_- Mesa de Servicios/input_Nombre Categora_nombreCategoria'), FailureHandling.STOP_ON_FAILURE)
+
+WebUI.setText(findTestObject('Object Repository/Page_- Mesa de Servicios/input_Nombre Categora_nombreCategoria'), 'categoria prueba katalon')
+
+WebUI.click(findTestObject('Object Repository/Page_- Mesa de Servicios/button_playlist_add Nueva Categora'))
+
+WebUI.click(findTestObject('Object Repository/Page_- Mesa de Servicios/a_categoria prueba katalon'))
 
 TextoFinal = (TextoFinal + '\nIngresamos el nombre de la categoría: "categoria prueba katalon"')
 
@@ -74,27 +80,11 @@ TextoFinal = (TextoFinal + '\nGuardamos')
 
 WebUI.click(findTestObject('Object Repository/Page_CrearEditarCategoria - Mesa de Servicios/button_save Guardar'))
 
-textoTabla = WebUI.getText(findTestObject('Object Repository/Page_CrearEditarCategoria - Mesa de Servicios/div_Categora Solicitud Agregada Correctamente'))
-
-if (textoTabla.contains('Solicitud Agregada Correctamente')) {
-    TextoFinal = (TextoFinal + '\nEl mensaje de Categoría Solicitud Agregada Correctamente se muestra de acuerdo a lo esperado')
-} else {
-    TextoFinal = (TextoFinal + '\nNo se despliega el mensaje esperado de que la categoría fue agregada correctamente')
-
-    throw StepErrorException('Error: Revisar por qué no se despliega el mensaje esperado')
-    
-    Ahora = new Date()
-
-    TextoFinal = ((TextoFinal + '\nTérmino: ') + Ahora)
-
-    println(TextoFinal)
-
-    WebUI.closeBrowser()
-}
 
 TextoFinal = (TextoFinal + '\nLuego de la inserción, corroboramos que la Categoría se haya guardado correctamente en la BD')
 
-CustomKeywords.'mantenedorCategoria.corroborarInsersion.connectDB'('svsticket', 'SoporteICSA_prd', '1433', 'consulta', 'Socovesa.2011')
+CustomKeywords.'mantenedorCategoria.corroborarInsersion.connectDB'('BdsGen2017Qa', 'Soporte_Ticket_SSS', '1433', 'UI_TICKET_SSS', 
+    'Ticket.2019')
 
 GlobalVariable.query = 'select CategoriaSolicitudId from CategoriaSolicitud where Descr = \'categoria prueba katalon\''
 

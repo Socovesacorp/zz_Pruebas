@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Buscar Solicitudes por Solicitante</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>f15c75c3-fd3a-4f30-8243-a453e17d3f6b</testCaseGuid>
+</TestCaseEntity>
